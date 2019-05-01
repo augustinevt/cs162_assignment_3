@@ -1,0 +1,55 @@
+preliminary build_plan:
+
+  + phase one
+
+    review sample code
+    initialize classes
+
+    load and print
+      reading in
+      instantiation
+
+    add and remove
+
+  + phase two
+
+    search
+
+    write
+
+  + phase three
+
+    validation, conversion
+    abstraction
+
+  + phase four
+
+  bug hunting
+  testing
+  refactoring
+
+NEXT TASK
+
+research sample code!!!!!
+make github repo
+make formal buildplan
+
+
+
+
+
+
+
+
+
+
+
+// if greater than or equal to size
+  // put at position equal to size
+
+// find position
+// set iterator value to position
+// start from the end of array
+// move everything down by one
+
+// overwrite position with input
