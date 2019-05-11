@@ -17,7 +17,6 @@ enum SearchOptions {
 };
 
 void search(CarList carList);
-void getInt(int &input, char prompt[200]);
 
 int main() {
   char fileName[100] = "cars.txt";
@@ -46,9 +45,11 @@ int main() {
         break;
 
       case 'r':
+        carList.remove();
         break;
 
       case 'a':
+        carList.addCar();
         break;
 
       case 'q':
@@ -96,7 +97,7 @@ void search(CarList carList) {
 				break;
 
 			case ORIGIN_SEARCH:
-				// searchByOrigin(cars, size);
+				carList.searchByOrigin();
 				break;
 
 			default:
@@ -107,24 +108,3 @@ void search(CarList carList) {
   return;
 }
 
-void getInt(int &input, char prompt[200]) {
-
-	cin.ignore(100, '\n');
-	cin.clear();
-
-	do {
-
-		if (cin.fail()) {
-			cout << "Invalid input. "
-					 << "Please enter a int (2, 200, ect.)\n";
-			cin.clear();
-			cin.ignore();
-		}
-
-		cout << prompt << endl;
-		cin >> input;
-
-	} while(cin.fail());
-
-	return;
-}

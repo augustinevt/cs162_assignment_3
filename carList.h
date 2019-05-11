@@ -7,6 +7,10 @@
 
 using namespace std;
 
+void getInt(int &input, char prompt[200]);
+void getDouble(double &input, char prompt[200]);
+
+
 class CarList {
 
   private:
@@ -19,6 +23,8 @@ class CarList {
     void searchByTitle();
     void searchByModel();
     void searchByOrigin();
+    void remove();
+    void addCar();
 };
 
 #endif

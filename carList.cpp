@@ -7,6 +7,51 @@
 
 using namespace std;
 
+void getInt(int &input, char prompt[200]) {
+
+	cin.ignore(100, '\n');
+	cin.clear();
+
+	do {
+
+		if (cin.fail()) {
+			cout << "Invalid input. "
+					 << "Please enter a int (2, 200, ect.)\n";
+			cin.clear();
+			cin.ignore();
+		}
+
+		cout << prompt << endl;
+		cin >> input;
+
+	} while(cin.fail());
+
+	return;
+}
+
+void getDouble(double &input, char prompt[200]) {
+
+	cin.ignore(100, '\n');
+	cin.clear();
+
+	do {
+
+		if (cin.fail()) {
+			cout << "Invalid input. "
+					 << "Please enter a double (2, 2.1, ect.)\n";
+			cin.clear();
+			cin.ignore();
+		}
+
+		cout << prompt << endl;
+		cin >> input;
+
+	} while(cin.fail());
+
+	return;
+}
+
+
 CarList::CarList(char fileName[]) {
 
   size = 0;
@@ -100,7 +145,6 @@ void CarList::searchByTitle() {
 	return;
 }
 
-
 void CarList::searchByModel() {
 	int model;
 
@@ -117,53 +161,155 @@ void CarList::searchByModel() {
 	return;
 }
 
-// void CarList::searchByOrigin(CarType cars[], int size) {
-// 	bool validOrigin = false;
-// 	int origin;
-//
-// 	do {
-// 		cout << "\n\nSelect Origin:\n\n"
-// 				 << "Europe: 0\n"
-// 				 << "US: 1\n"
-// 				 << "Japan: 2\n"
-// 				 << endl;
-//
-// 		cin >> origin;
-//
-// 		cout << origin << US << JAPAN;
-//
-// 		switch (origin) {
-// 			case EUROPE:
-// 				validOrigin = true;
-// 				break;
-//
-// 			case US:
-// 				validOrigin = true;
-// 				break;
-//
-// 			case JAPAN:
-// 				validOrigin = true;
-// 				break;
-//
-// 			default:
-// 				cout << "Invalid Origin!\n";
-// 		}
-// 	} while(!validOrigin);
-//
-// 	for(int i = 0; i < size; i++) {
-// 		if (cars[i].getOrigin() == origin) {
-// 			printCar(carsList[i]);
-// 		}
-// 	}
-//
-// 	return;
-// }
+void CarList::searchByOrigin() {
+	bool validOrigin = false;
+	int origin;
 
+	do {
+		cout << "\n\nSelect Origin:\n\n"
+				 << "Europe: 0\n"
+				 << "US: 1\n"
+				 << "Japan: 2\n"
+				 << endl;
+
+		cin >> origin;
+
+		switch (origin) {
+			case EUROPE:
+				validOrigin = true;
+				break;
+
+			case US:
+				validOrigin = true;
+				break;
+
+			case JAPAN:
+				validOrigin = true;
+				break;
+
+			default:
+				cout << "Invalid Origin!\n";
+		}
+	} while(!validOrigin);
+
+	for(int i = 0; i < size; i++) {
+		if (carList[i].getOrigin() == origin) {
+			carList[i].print();
+		}
+	}
+
+	return;
+}
+
+void CarList::remove() {
+  char removePrompt[200] = "Enter index:";
+  int position = 0;
+
+  getInt(position, removePrompt);
+
+  if(position > size) {
+    cout << "This index does not exist! \n\n";
+    return;
+  }
+
+  for (int i = position; i < size; i++) {
+    carList[i] = carList[i + 1];
+  }
+
+  size--;
+
+  return;
+}
 
 void CarList::print() {
   for(int i = 0; i < size; i++) {
+    cout << i << " : ";
     carList[i].print();
   }
   return;
+}
+
+void CarList::addCar() {
+	CarType car;
+
+	int origin = 0;
+  Origin enumOrigin = EUROPE;
+	bool validOrigin = false;
+
+	char mpgPrompt[200] = "Enter MPG (double): ";
+	char cylinderPrompt[200] = "Enter Cylinders (int): ";
+	char displacementPrompt[200] = "Enter the displacement (double): ";
+	char horsepowerPrompt[200] = "Enter the horsepower (double): ";
+	char weightPrompt[200] = "Enter the weight (double): ";
+	char accelerationPrompt[200] = "Enter the acceleration (double): ";
+	char modelPrompt[200] = "Enter the model (int): ";
+	char originPrompt[200] = "Enter the origin: ";
+
+  char title[200];
+  double mpg;
+  int cylinders;
+  double displacement;
+  double horsepower;
+  double weight;
+  double acceleration;
+  int model;
+
+	cout << "\nEnter the title: " << endl;
+	cin.ignore();
+	cin.get(title, 200);
+
+	getDouble(mpg, mpgPrompt);
+	getInt(cylinders, cylinderPrompt);
+	getDouble(displacement, displacementPrompt);
+	getDouble(horsepower, horsepowerPrompt);
+	getDouble(weight, weightPrompt);
+	getDouble(acceleration, accelerationPrompt);
+	getInt(model, modelPrompt);
+
+  car.setTitle(title);
+	car.setMpg(mpg);
+	car.setCylinders(cylinders);
+	car.setDisplacement(displacement);
+	car.setHorsepower(horsepower);
+	car.setWeight(weight);
+	car.setAcceleration(acceleration);
+	car.setModel(model);
+
+	do {
+		cout << "\nSelect Origin:\n\n"
+				 << "Europe: 0\n"
+				 << "US: 1\n"
+				 << "JAPAN: 2\n"
+				 << endl;
+
+		cin >> origin;
+
+		switch (origin) {
+			case EUROPE:
+				enumOrigin = EUROPE;
+				validOrigin = true;
+				break;
+			case US:
+				enumOrigin = US;
+				validOrigin = true;
+				break;
+			case JAPAN:
+				enumOrigin = JAPAN;
+				validOrigin = true;
+				break;
+			default:
+				cout << "Invalid Origin!\n";
+		}
+	} while(!validOrigin);
+
+  car.setOrigin(enumOrigin);
+
+	carList[size] = car;
+
+	cout << "\ncar added!\n\n";
+
+	size++;
+
+	return;
 }
 
