@@ -41,8 +41,8 @@ class CarType {
     // void setHorsepower(double newHorsepower);
     // void setWeight(double newHeight);
     // void setAcceleration(double newAcceleration);
-    // void setModel(int newModel);
-    // void setOrigin(char newOrigin[200]);
+    int getModel();
+    Origin getOrigin();
 
     void print();
 };

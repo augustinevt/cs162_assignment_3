@@ -101,6 +101,65 @@ void CarList::searchByTitle() {
 }
 
 
+void CarList::searchByModel() {
+	int model;
+
+	cout << "Enter model: \n";
+	cin >> model;
+
+	for(int i = 0; i < size; i++) {
+    // cout << (carList[i].getModel() == model) << endl;
+		if(carList[i].getModel() == model) {
+			carList[i].print();
+		}
+	}
+
+	return;
+}
+
+// void CarList::searchByOrigin(CarType cars[], int size) {
+// 	bool validOrigin = false;
+// 	int origin;
+//
+// 	do {
+// 		cout << "\n\nSelect Origin:\n\n"
+// 				 << "Europe: 0\n"
+// 				 << "US: 1\n"
+// 				 << "Japan: 2\n"
+// 				 << endl;
+//
+// 		cin >> origin;
+//
+// 		cout << origin << US << JAPAN;
+//
+// 		switch (origin) {
+// 			case EUROPE:
+// 				validOrigin = true;
+// 				break;
+//
+// 			case US:
+// 				validOrigin = true;
+// 				break;
+//
+// 			case JAPAN:
+// 				validOrigin = true;
+// 				break;
+//
+// 			default:
+// 				cout << "Invalid Origin!\n";
+// 		}
+// 	} while(!validOrigin);
+//
+// 	for(int i = 0; i < size; i++) {
+// 		if (cars[i].getOrigin() == origin) {
+// 			printCar(carsList[i]);
+// 		}
+// 	}
+//
+// 	return;
+// }
+
+
 void CarList::print() {
   for(int i = 0; i < size; i++) {
     carList[i].print();

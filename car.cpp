@@ -41,7 +41,7 @@ void CarType::print() {
       cout << "Japan;" << endl;
       break;
   }
-  
+
   return;
 }
 
@@ -55,32 +55,47 @@ void CarType::getTitle(char outTitle[]) {
 
 void CarType::setMpg(double newMpg) {
   mpg = newMpg;
+  return;
 }
 
 void CarType::setCylinders(int newCylinders) {
   cylinders = newCylinders;
+  return;
 }
 
 void CarType::setDisplacement(double newDisplacement) {
   displacement = newDisplacement;
+  return;
 }
 
 void CarType::setHorsepower(double newHorsepower) {
   horsepower = newHorsepower;
+  return;
 }
 
 void CarType::setWeight( double newWeight) {
   weight = newWeight;
+  return;
 }
 
 void CarType::setAcceleration(double newAcceleration) {
   acceleration = newAcceleration;
+  return;
 }
 
 void CarType::setModel(int newModel) {
   model = newModel;
+  return;
+}
+
+int CarType::getModel() {
+  return model;
 }
 
 void CarType::setOrigin(Origin newOrigin) {
   origin = newOrigin;
+}
+
+Origin CarType::getOrigin() {
+  return origin;
 }

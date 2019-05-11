@@ -17,6 +17,8 @@ class CarList {
     CarList(char fileName[100]);
     void print();
     void searchByTitle();
+    void searchByModel();
+    void searchByOrigin();
 };
 
 #endif
