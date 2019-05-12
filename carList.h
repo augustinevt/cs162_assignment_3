@@ -25,6 +25,7 @@ class CarList {
     void searchByOrigin();
     void remove();
     void addCar();
+    void writeFile(char filename[200]);
 };
 
 #endif

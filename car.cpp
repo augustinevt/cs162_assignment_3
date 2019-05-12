@@ -58,9 +58,17 @@ void CarType::setMpg(double newMpg) {
   return;
 }
 
+double CarType::getMpg() {
+  return mpg;
+}
+
 void CarType::setCylinders(int newCylinders) {
   cylinders = newCylinders;
   return;
+}
+
+int CarType::getCylinders() {
+  return cylinders;
 }
 
 void CarType::setDisplacement(double newDisplacement) {
@@ -68,19 +76,35 @@ void CarType::setDisplacement(double newDisplacement) {
   return;
 }
 
+double CarType::getDisplacement() {
+  return displacement;
+}
+
 void CarType::setHorsepower(double newHorsepower) {
   horsepower = newHorsepower;
   return;
 }
 
-void CarType::setWeight( double newWeight) {
+double CarType::getHorsepower() {
+  return horsepower;
+}
+
+void CarType::setWeight(double newWeight) {
   weight = newWeight;
   return;
+}
+
+double CarType::getWeight() {
+  return weight;
 }
 
 void CarType::setAcceleration(double newAcceleration) {
   acceleration = newAcceleration;
   return;
+}
+
+double CarType::getAcceleration() {
+  return acceleration;
 }
 
 void CarType::setModel(int newModel) {

@@ -313,3 +313,45 @@ void CarList::addCar() {
 	return;
 }
 
+void CarList::writeFile(char filename[200]) {
+	char title[200];
+	Origin origin;
+	ofstream outFile;
+
+	outFile.open("cars.txt");
+
+	for(int i = 0; i < size; i++) {
+
+		carList[i].getTitle(title);
+
+		outFile << title << ";";
+ 		outFile << carList[i].getMpg() << ";";
+ 		outFile << carList[i].getCylinders() << ";";
+ 		outFile << carList[i].getDisplacement() << ";";
+ 		outFile << carList[i].getHorsepower() << ";";
+ 		outFile << carList[i].getWeight() << ";";
+ 		outFile << carList[i].getAcceleration() << ";";
+ 		outFile << carList[i].getModel() << ";";
+
+		origin = carList[i].getOrigin();
+
+		switch (origin) {
+			case EUROPE:
+				outFile << "Europe";
+				break;
+			case US:
+				outFile << "US";
+				break;
+			default:
+				outFile << "Japan";
+				break;
+		}
+
+		if(i != size - 1) {
+			outFile << endl;
+		}
+	}
+
+	outFile.close();
+}
+

@@ -35,15 +35,15 @@ class CarType {
     void setOrigin(Origin newOrigin);
 
     void getTitle(char outTitle[200]);
-    // void setMpg(double newMpg);
-    // void setCylinders(int newCylinders);
-    // void setDisplacement(double newDisplacement);
-    // void setHorsepower(double newHorsepower);
-    // void setWeight(double newHeight);
-    // void setAcceleration(double newAcceleration);
+    double getMpg();
+    int getCylinders();
+    double getDisplacement();
+    double getHorsepower();
+    double getWeight();
+    double getAcceleration();
     int getModel();
     Origin getOrigin();
-
+    
     void print();
 };
 
