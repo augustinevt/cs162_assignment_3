@@ -1,56 +1,20 @@
+//////////////////////////////////////////
+// Program Name: CarTypedatabase
+// Filename: carList.cpp
+// Author: Augustine von Trapp
+// Date: May 12th, 2019
+// Assignment: project3
+// Description: This program allows a user to manage a car database
+//////////////////////////////////////////
 
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
-#include "car.h"
 #include "carList.h"
+#include "utils.h"
+#include "car.h"
 
 using namespace std;
-
-void getInt(int &input, char prompt[200]) {
-
-	cin.ignore(100, '\n');
-	cin.clear();
-
-	do {
-
-		if (cin.fail()) {
-			cout << "Invalid input. "
-					 << "Please enter a int (2, 200, ect.)\n";
-			cin.clear();
-			cin.ignore();
-		}
-
-		cout << prompt << endl;
-		cin >> input;
-
-	} while(cin.fail());
-
-	return;
-}
-
-void getDouble(double &input, char prompt[200]) {
-
-	cin.ignore(100, '\n');
-	cin.clear();
-
-	do {
-
-		if (cin.fail()) {
-			cout << "Invalid input. "
-					 << "Please enter a double (2, 2.1, ect.)\n";
-			cin.clear();
-			cin.ignore();
-		}
-
-		cout << prompt << endl;
-		cin >> input;
-
-	} while(cin.fail());
-
-	return;
-}
-
 
 CarList::CarList(char fileName[]) {
 
@@ -127,7 +91,6 @@ CarList::CarList(char fileName[]) {
   }
 }
 
-
 void CarList::searchByTitle() {
 	char term[200];
   char carTitle[200];
@@ -152,7 +115,6 @@ void CarList::searchByModel() {
 	cin >> model;
 
 	for(int i = 0; i < size; i++) {
-    // cout << (carList[i].getModel() == model) << endl;
 		if(carList[i].getModel() == model) {
 			carList[i].print();
 		}
@@ -303,11 +265,8 @@ void CarList::addCar() {
 	} while(!validOrigin);
 
   car.setOrigin(enumOrigin);
-
 	carList[size] = car;
-
 	cout << "\ncar added!\n\n";
-
 	size++;
 
 	return;
@@ -354,4 +313,3 @@ void CarList::writeFile(char filename[200]) {
 
 	outFile.close();
 }
-

@@ -1,3 +1,12 @@
+//////////////////////////////////////////
+// Program Name: CarTypedatabase
+// Filename: car.h
+// Author: Augustine von Trapp
+// Date: may 12th, 2019
+// Assignment: project3
+// Description: This program allows a user to manage a car database
+//////////////////////////////////////////
+
 #ifndef CAR_TYPE
 #define CAR_TYPE
 
@@ -43,7 +52,7 @@ class CarType {
     double getAcceleration();
     int getModel();
     Origin getOrigin();
-    
+
     void print();
 };
 

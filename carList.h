@@ -1,15 +1,19 @@
+//////////////////////////////////////////
+// Program Name: CarTypedatabase
+// Filename: carList.h
+// Author: Augustine von Trapp
+// Date: May 12th, 2019
+// Assignment: project3
+// Description: This program allows a user to manage a car database
+//////////////////////////////////////////
 
-#ifndef CAR_LIST // include guard
+#ifndef CAR_LIST
 #define CAR_LIST
 
 #include <fstream>
 #include "car.h"
 
 using namespace std;
-
-void getInt(int &input, char prompt[200]);
-void getDouble(double &input, char prompt[200]);
-
 
 class CarList {
 

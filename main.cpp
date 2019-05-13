@@ -1,22 +1,20 @@
+//////////////////////////////////////////
+// Program Name: CarTypedatabase
+// Filename: main.cpp
+// Author: Augustine von Trapp
+// Date: May 12th, 2019
+// Assignment: project3
+// Description: This program allows a user to manage a car database
+//////////////////////////////////////////
+
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
 #include <string.h>
-
 #include "carList.h"
+#include "utils.h"
 
 using namespace std;
-
-int const MAX_CHAR = 100;
-
-enum SearchOptions {
-  QUIT_SEARCH = 0,
-  TITLE_SEARCH = 1,
-  MODEL_SEARCH = 2,
-  ORIGIN_SEARCH = 3
-};
-
-void search(CarList carList);
 
 int main() {
   char fileName[100] = "cars.txt";
@@ -24,7 +22,7 @@ int main() {
 
   CarList carList(fileName);
 
-  cout << "\n\nHello and welcom to project 2!\n\n";
+  cout << "\n\nHello and welcome to project 3!\n\n";
 
   while(tolower(cmd) != 'q') {
     cout << "------MAIN MENU--------\n"
@@ -66,45 +64,5 @@ int main() {
   return 0;
 }
 
-void search(CarList carList) {
-	int searchSelect = 1;
-	double weightTerm;
-	char searchTerm[200];
 
-	cout << "\n------SEARCH MENU------\n";
-
-	while(searchSelect != QUIT_SEARCH) {
-
-		char searchPrompt[1000] = "\nPlease select a search criteria:\n\n"
-			"search by title: 1\n"
-			"search by model: 2\n"
-			"search by origin: 3\n"
-			"return to main menu: 0\n";
-
-		getInt(searchSelect, searchPrompt);
-
-		switch (searchSelect) {
-			case QUIT_SEARCH:
-				break;
-
-			case TITLE_SEARCH:
-				cout << "Enter search term: " << endl;
-				carList.searchByTitle();
-				break;
-
-			case MODEL_SEARCH:
-				carList.searchByModel();
-				break;
-
-			case ORIGIN_SEARCH:
-				carList.searchByOrigin();
-				break;
-
-			default:
-				cout << "Please enter a valid option";
-		}
-	}
-
-  return;
-}
 

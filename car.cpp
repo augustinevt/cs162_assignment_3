@@ -1,3 +1,12 @@
+//////////////////////////////////////////
+// Program Name: CarTypedatabase
+// Filename: car.cpp
+// Author: Augustine von Trapp
+// Date: May 12th, 2019
+// Assignment: project3
+// Description: This program allows a user to manage a car database
+//////////////////////////////////////////
+
 #include <iostream>
 #include <stdio.h>
 #include "car.h"
